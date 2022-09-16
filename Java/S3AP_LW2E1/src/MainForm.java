@@ -91,9 +91,9 @@ public class MainForm {
     }
 
     private double calcXwithParam(Double x){
-        if (x <= 0) {x = Math.toRadians(x); return Math.sin(x) + Math.cos(x);}
-        else if (0 < x && x < 1){x = Math.toRadians(x); return Math.tan(x);}
-        return Math.pow(x, 3);
+        if (x <= 0) {x = Math.toRadians(x); first_rbutton.setSelected(true); return Math.sin(x) + Math.cos(x);}
+        else if (0 < x && x < 1){x = Math.toRadians(x); second_rbutton.setSelected(true); return Math.tan(x);}
+        third_rbutton.setSelected(true); return Math.pow(x, 3);
     }
 
     private void getXandCalc(){

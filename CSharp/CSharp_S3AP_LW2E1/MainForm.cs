@@ -22,7 +22,7 @@ public partial class MainForm : Form
 
     public MainForm()
     {
-        this.Size = new Size(250, 150);
+        this.Size = new Size(320, 150);
         this.Text = "Лабораторная работа № 2";
 
         discription_label = new Label();
@@ -49,9 +49,9 @@ public partial class MainForm : Form
         this.Controls.Add(output_label);
 
         rbuttons_group = new GroupBox();
-        first_rbutton = _initRButton(150, 15, 70, 20, "sin(x)+cos(x)");
-        second_rbutton = _initRButton(150, 35, 70, 20, "tg(x)");
-        third_rbutton = _initRButton(150, 55, 70, 20, "x^3");
+        first_rbutton = _initRButton(150, 15, 120, 20, "sin(x)+cos(x)");
+        second_rbutton = _initRButton(150, 35, 120, 20, "tg(x)");
+        third_rbutton = _initRButton(150, 55, 120, 20, "x^3");
         this.Controls.Add(first_rbutton);
         this.Controls.Add(second_rbutton);
         this.Controls.Add(third_rbutton);
@@ -73,9 +73,9 @@ public partial class MainForm : Form
     }
 
     private double calcXwithParam(double x){
-        if (x <= 0) { x = x * (Math.PI / 180); return Math.Sin(x) + Math.Cos(x); }
-        else if (0 < x && x < 1) { x = x * (Math.PI / 180); return Math.Tan(x); }
-        return Math.Pow(x, 3);
+        if (x <= 0) { x = x * (Math.PI / 180); first_rbutton.Checked = true; return Math.Sin(x) + Math.Cos(x); }
+        else if (0 < x && x < 1) { x = x * (Math.PI / 180); second_rbutton.Checked = true; return Math.Tan(x); }
+        third_rbutton.Checked = true; return Math.Pow(x, 3);
     }
 
     private void getXandCalc(){
