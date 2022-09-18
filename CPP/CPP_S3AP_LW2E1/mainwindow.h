@@ -9,6 +9,7 @@
 #include <QRadioButton>
 #include <QGroupBox>
 #include <QVBoxLayout>
+#include <QCheckBox>
 
 class MainWindow : public QMainWindow
 {
@@ -24,6 +25,8 @@ class MainWindow : public QMainWindow
     QRadioButton *first_rbutton;
     QRadioButton *second_rbutton;
     QRadioButton *third_rbutton;
+
+    QCheckBox *double_checkbox;
 
 public:
     MainWindow(QWidget *parent = nullptr);

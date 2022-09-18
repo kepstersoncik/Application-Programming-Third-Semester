@@ -25,15 +25,22 @@ MainWindow::MainWindow(QWidget *parent)
 
     first_rbutton = new QRadioButton("sin(x)+cos(x)", this);
     first_rbutton->setGeometry(110, 15, 50, 20);
+    connect(first_rbutton, SIGNAL(toggled(bool)), this, SLOT(getXandCalc()));
     second_rbutton = new QRadioButton("tg(x)", this);
     second_rbutton->setGeometry(110, 40, 50, 20);
+    connect(second_rbutton, SIGNAL(toggled(bool)), this, SLOT(getXandCalc()));
     third_rbutton = new QRadioButton("x^3", this);
     third_rbutton->setGeometry(110, 65, 50, 20);
+    connect(third_rbutton, SIGNAL(toggled(bool)), this, SLOT(getXandCalc()));
 
     box_layout->addWidget(first_rbutton);
     box_layout->addWidget(second_rbutton);
     box_layout->addWidget(third_rbutton);
     rbuttons_group->setLayout(box_layout);
+
+    double_checkbox = new QCheckBox("Удвоить", this);
+    double_checkbox->setGeometry(125, 90, 75, 20);
+    connect(double_checkbox, SIGNAL(toggled(bool)), this, SLOT(getXandCalc()));
 }
 
 MainWindow::~MainWindow()
@@ -63,6 +70,7 @@ void MainWindow::printError(QString text){
 }
 
 void MainWindow::printResult(double x){
+    if (double_checkbox->isChecked()) { x*= 2; }
     this->output_label->setText(QString("%1").arg(x));
 }
 
