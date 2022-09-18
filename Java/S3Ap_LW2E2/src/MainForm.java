@@ -106,11 +106,19 @@ public class MainForm {
         output_label.setText("Результат: " + Double.toString(x));
     }
 
+    private double myPow(double x, int n){
+        double res = x;
+        for (int i = 0; i < n-1; i++){
+            res *= x;
+        }
+        return res;
+    }
+
     private void calcWithE(double e, double x){
         double result = Math.PI / 2, temp;
         temp = x;
         for(int n = 0; Math.abs(temp) > e; n++){
-            temp = (Math.pow(-1, n+1) / ((2 * n + 1) * Math.pow(x, 2 * n + 1)));
+            temp = (myPow(-1, n+1) / ((2 * n + 1) * myPow(x, 2 * n + 1)));
             result += temp;
         }
         printResult(result);
@@ -119,7 +127,7 @@ public class MainForm {
     private void calcWithN(double n, double x){
         double result = Math.PI / 2;
         for (int i = 0; i < n; i++){
-            result += (Math.pow(-1, n+1) / ((2 * n + 1) * Math.pow(x, 2 * n + 1)));
+            result += (myPow(-1, i+1) / ((2 * i + 1) * myPow(x, 2 * i + 1)));
         }
         printResult(result);
     }
