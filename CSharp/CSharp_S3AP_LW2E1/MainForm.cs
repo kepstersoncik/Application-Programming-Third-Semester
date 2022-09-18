@@ -12,11 +12,14 @@ public partial class MainForm : Form
     RadioButton second_rbutton;
     RadioButton third_rbutton;
 
+    CheckBox double_checkbox;
+
     private RadioButton _initRButton(int x, int y, int w, int h, string text){
         RadioButton rbutton = new RadioButton();
         rbutton.Location = new Point(x, y);
         rbutton.Size = new Size(w, h);
         rbutton.Text = text;
+        rbutton.CheckedChanged += new EventHandler(calc_button_Click);
         return rbutton;
     }
 
@@ -45,7 +48,7 @@ public partial class MainForm : Form
 
         output_label = new Label();
         output_label.Location = new Point(15, 75);
-        output_label.Size = new Size(240, 30);
+        output_label.Size = new Size(120, 30);
         this.Controls.Add(output_label);
 
         rbuttons_group = new GroupBox();
@@ -55,6 +58,13 @@ public partial class MainForm : Form
         this.Controls.Add(first_rbutton);
         this.Controls.Add(second_rbutton);
         this.Controls.Add(third_rbutton);
+
+        double_checkbox = new CheckBox();
+        double_checkbox.Location = new Point(150, 80);
+        double_checkbox.Size = new Size(120, 20);
+        double_checkbox.Text = "Удвоить";
+        double_checkbox.CheckedChanged += new EventHandler(calc_button_Click);
+        this.Controls.Add(double_checkbox);
     }
 
     private void printError(string text){
@@ -62,6 +72,7 @@ public partial class MainForm : Form
     }
 
     private void printResult(double x){
+        if (double_checkbox.Checked) { x *= 2; }
         output_label.Text = string.Format("Результат: {0:0.00}", x);
     }
 
