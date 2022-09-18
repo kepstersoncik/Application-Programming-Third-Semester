@@ -17,11 +17,18 @@ public class MainForm {
     private JRadioButton second_rbutton;
     private JRadioButton third_rbutton;
 
+    private JCheckBox double_checkbox;
+
     private JRadioButton _initRButton(int x, int y, int w, int h, String text){
         JRadioButton rbutton = new JRadioButton();
         rbutton.setBounds(x, y, w, h);
         rbutton.setText(text);
         rbutton.setFont(form_font);
+        rbutton.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                getXandCalc();
+            }
+        });
         return rbutton;
     }
 
@@ -72,6 +79,17 @@ public class MainForm {
         main_form.add(second_rbutton);
         main_form.add(third_rbutton);
 
+        double_checkbox = new JCheckBox();
+        double_checkbox.setBounds(170, 75, RBUTTON_W, RBUTTON_H);
+        double_checkbox.setText("Удвоить");
+        double_checkbox.setFont(form_font);
+        double_checkbox.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                getXandCalc();
+            }
+        });
+        main_form.add(double_checkbox);
+
         main_form.show();
     }
 
@@ -80,6 +98,7 @@ public class MainForm {
     }
 
     private void printResult(Double x){
+        if (double_checkbox.isSelected()){ x *= 2; }
         output_label.setText("Результат: " + String.format("%.3f", x));
     }
 
