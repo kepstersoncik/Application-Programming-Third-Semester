@@ -118,17 +118,19 @@ public class MainForm {
         double result = Math.PI / 2, temp;
         temp = x;
         for(int n = 0; Math.abs(temp) > e; n++){
-            temp = (myPow(-1, n+1) / ((2 * n + 1) * myPow(x, 2 * n + 1)));
+            temp = (myPow(-1, n+1) / ((2 * n + 1) * myPow(Math.abs(x), 2 * n + 1)));
             result += temp;
         }
+        if (x < 0) { result = -result; }
         printResult(result);
     }
 
     private void calcWithN(double n, double x){
         double result = Math.PI / 2;
         for (int i = 0; i < n; i++){
-            result += (myPow(-1, i+1) / ((2 * i + 1) * myPow(x, 2 * i + 1)));
+            result += (myPow(-1, i+1) / ((2 * i + 1) * myPow(Math.abs(x), 2 * i + 1)));
         }
+        if (x < 0) { result = -result; }
         printResult(result);
     }
 
@@ -142,7 +144,7 @@ public class MainForm {
             printError("Не удается получить данные!");
             return;
         }
-        if (x <= 1) { printError("x должен быть больше 1"); return; }
+        //if (x <= 1) { printError("x должен быть больше 1"); return; }
         if (param < 0) { printError("Недопустимое значение параметра!"); return; }
         if (e_rbutton.isSelected()){ calcWithE(param, x); }
         else if (n_rbutton.isSelected()){ calcWithN(param, x); }
