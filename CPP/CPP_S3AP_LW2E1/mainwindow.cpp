@@ -47,6 +47,13 @@ MainWindow::~MainWindow()
 {
 }
 
+double MainWindow::myPow(double x, int n){
+    if (n == 0) return 1.0;
+    if (n % 2 != 0) return myPow(x, n-1) * x;
+    double y = myPow(x, n/2);
+    return y * y;
+}
+
 void MainWindow::getXandCalc(){
     double x;
     try{
@@ -60,7 +67,7 @@ void MainWindow::getXandCalc(){
     switch (getActionNumber()){
         case 1: x = x * (3.14 / 180); printResult(std::sin(x)+std::cos(x)); break;
         case 2: x = x * (3.14 / 180); printResult(std::tan(x)); break;
-        case 3: printResult(std::pow(x, 3)); break;
+        case 3: printResult(myPow(x, 3)); break;
         case 4: printResult(calcXwithParam(x)); break;
     }
 }
@@ -84,5 +91,5 @@ int MainWindow::getActionNumber(){
 double MainWindow::calcXwithParam(double x){
     if (x <= 0) { x = x * (3.14 / 180); first_rbutton->setChecked(true); return std::sin(x) + std::cos(x); }
     else if (0 < x && x < 1) { x = x * (3.14 / 180); second_rbutton->setChecked(true); return std::tan(x); }
-    third_rbutton->setChecked(true); return std::pow(x, 3);
+    third_rbutton->setChecked(true); return myPow(x, 3);
 }

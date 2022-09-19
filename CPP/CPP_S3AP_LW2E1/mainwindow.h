@@ -38,5 +38,6 @@ private:
     void printResult(double);
     int getActionNumber();
     double calcXwithParam(double);
+    double myPow(double, int);
 };
 #endif // MAINWINDOW_H

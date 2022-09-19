@@ -93,6 +93,13 @@ public class MainForm {
         main_form.show();
     }
 
+    private double myPow(double x, int n){
+        if (n == 0) { return 1.0; }
+        if (n % 2 != 0) { return myPow(x, n-1) * x; }
+        double y = myPow(x, n/2);
+        return y * y;
+    }
+
     private void printError(String text){
         output_label.setText("Ошибка! " + text);
     }
@@ -112,7 +119,7 @@ public class MainForm {
     private double calcXwithParam(Double x){
         if (x <= 0) {x = Math.toRadians(x); first_rbutton.setSelected(true); return Math.sin(x) + Math.cos(x);}
         else if (0 < x && x < 1){x = Math.toRadians(x); second_rbutton.setSelected(true); return Math.tan(x);}
-        third_rbutton.setSelected(true); return Math.pow(x, 3);
+        third_rbutton.setSelected(true); return myPow(x, 3);
     }
 
     private void getXandCalc(){
@@ -127,7 +134,7 @@ public class MainForm {
         switch (getActionNumber()){
             case 1: x = Math.toRadians(x); printResult(Math.sin(x) + Math.cos(x)); break;
             case 2: x = Math.toRadians(x); printResult(Math.tan(x)); break;
-            case 3: printResult(Math.pow(x, 3)); break;
+            case 3: printResult(myPow(x, 3)); break;
             case 4: printResult(calcXwithParam(x)); break;
         }
     }

@@ -67,6 +67,13 @@ public partial class MainForm : Form
         this.Controls.Add(double_checkbox);
     }
 
+    private double myPow(double x, int n){
+        if (n == 0) { return 1.0; }
+        if (n % 2 != 0) { return myPow(x, n-1) * x; }
+        double y = myPow(x, n/2);
+        return y * y;
+    }
+
     private void printError(string text){
         output_label.Text = "Ошибка! " + text;
     }
@@ -86,7 +93,7 @@ public partial class MainForm : Form
     private double calcXwithParam(double x){
         if (x <= 0) { x = x * (Math.PI / 180); first_rbutton.Checked = true; return Math.Sin(x) + Math.Cos(x); }
         else if (0 < x && x < 1) { x = x * (Math.PI / 180); second_rbutton.Checked = true; return Math.Tan(x); }
-        third_rbutton.Checked = true; return Math.Pow(x, 3);
+        third_rbutton.Checked = true; return myPow(x, 3);
     }
 
     private void getXandCalc(){
@@ -101,7 +108,7 @@ public partial class MainForm : Form
         switch (getActionNumber()){
             case 1: x = x * (Math.PI / 180); printResult(Math.Sin(x) + Math.Cos(x)); break;
             case 2: x = x * (Math.PI / 180); printResult(Math.Tan(x)); break;
-            case 3: printResult(Math.Pow(x, 3)); break;
+            case 3: printResult(myPow(x, 3)); break;
             case 4: printResult(calcXwithParam(x)); break;
         }
     }
