@@ -144,7 +144,6 @@ public class MainForm {
             printError("Не удается получить данные!");
             return;
         }
-        //if (x <= 1) { printError("x должен быть больше 1"); return; }
         if (param < 0) { printError("Недопустимое значение параметра!"); return; }
         if (e_rbutton.isSelected()){ calcWithE(param, x); }
         else if (n_rbutton.isSelected()){ calcWithN(param, x); }
