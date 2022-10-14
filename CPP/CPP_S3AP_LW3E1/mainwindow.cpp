@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     menu_bar->setGeometry(0, 0, 275, 25);
 
     file_menu = new QMenu("Файл");
-    create_new = new QAction("Создать");
+    create_new = new QAction("Новый");
     connect(create_new, SIGNAL(triggered()), this, SLOT(calculateX()));
     file_menu->addAction(create_new);
     load = new QAction("Загрузить");
