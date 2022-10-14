@@ -17,6 +17,9 @@
 #include <QFile>
 #include <QTextStream>
 
+#include <QLineEdit>
+#include <QPushButton>
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -36,9 +39,16 @@ class MainWindow : public QMainWindow
 
     QLabel *x_list_label;
     QListWidget *x_list;
+    QLineEdit *selected_x_lineedit;
+    QPushButton *replace_x_button;
 
     QLabel *y_combobox_label;
     QComboBox *y_combobox;
+    QLineEdit *selected_y_lineedit;
+    QPushButton *replace_y_button;
+
+    QListWidgetItem *selected_x = nullptr;
+    int selected_y = -1;
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -47,6 +57,10 @@ private slots:
     void calculateY();
     void load_file();
     void save_file();
+    void saveXPosition();
+    void changeXfromPosition();
+    void saveYPosition();
+    void changeYfromPosition();
 public slots:
     void exit_s();
 private:
@@ -54,5 +68,7 @@ private:
     void printY();
     bool isParseble(QString);
     double parseToDouble(QString);
+    std::vector<double> readX();
+    std::vector<double> readY();
 };
 #endif // MAINWINDOW_H

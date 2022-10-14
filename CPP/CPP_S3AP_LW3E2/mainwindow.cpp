@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     arrays = new XYArrays();
 
     setWindowTitle("Работа №3");
-    setMinimumSize(275, 280);
+    setMinimumSize(275, 340);
 
     menu_bar = new QMenuBar(this);
     menu_bar->setGeometry(0, 0, 275, 25);
@@ -38,11 +38,24 @@ MainWindow::MainWindow(QWidget *parent)
     x_list_label->setGeometry(15, 40, 120, 25);
     x_list = new QListWidget(this);
     x_list->setGeometry(15, 65, 120, 200);
+    connect(x_list, SIGNAL(itemSelectionChanged()), this, SLOT(saveXPosition()));
+    selected_x_lineedit = new QLineEdit(this);
+    selected_x_lineedit->setGeometry(15, 270, 120, 25);
+    replace_x_button = new QPushButton("Заменить X", this);
+    replace_x_button->setGeometry(15, 300, 120, 25);
+    connect(replace_x_button, SIGNAL(clicked(bool)), this, SLOT(changeXfromPosition()));
 
     y_combobox_label = new QLabel("Массив Y", this);
     y_combobox_label->setGeometry(140, 40, 120, 25);
     y_combobox = new QComboBox(this);
     y_combobox->setGeometry(140, 65, 120, 25);
+    connect(y_combobox, SIGNAL(currentIndexChanged(int)), this, SLOT(saveYPosition()));
+    selected_y_lineedit = new QLineEdit(this);
+    selected_y_lineedit->setGeometry(140, 270, 120, 25);
+    replace_y_button = new QPushButton("Заменить Y", this);
+    replace_y_button->setGeometry(140, 300, 120, 25);
+    connect(replace_y_button, SIGNAL(clicked(bool)), this, SLOT(changeYfromPosition()));
+
 }
 
 MainWindow::~MainWindow()
@@ -97,6 +110,37 @@ void MainWindow::save_file(){
     fout.close();
 }
 
+void MainWindow::saveXPosition(){
+    this->selected_x = x_list->currentItem();
+    this->selected_x_lineedit->setText(this->selected_x->text());
+}
+
+void MainWindow::changeXfromPosition(){
+    if (selected_x == nullptr) return;
+    QString value = selected_x_lineedit->text();
+    for (auto c : value){
+        if (c.isLetter()) return;
+    }
+    selected_x->setText(value);
+    std::vector<double> temp = readX();
+    arrays->setX(temp);
+}
+
+void MainWindow::saveYPosition(){
+    this->selected_y = y_combobox->currentIndex();
+    this->selected_y_lineedit->setText(this->y_combobox->itemText(selected_y));
+}
+
+void MainWindow::changeYfromPosition(){
+    if (selected_y == -1) return;
+    QString value = selected_y_lineedit->text();
+    for (auto c : value){
+        if (c.isLetter()) return;
+    }
+    this->y_combobox->setItemText(selected_y, value);
+    std::vector<double> temp = readY();
+}
+
 void MainWindow::exit_s(){
     std::exit(0);
 }
@@ -129,4 +173,20 @@ double MainWindow::parseToDouble(QString str){
     str.erase(str.begin(), str.begin()+1);
     str.erase(str.end()-1, str.end());
     return str.toDouble();
+}
+
+std::vector<double> MainWindow::readX(){
+    std::vector<double> result;
+    for (int i = 0; i < x_list->count(); i++){
+        result.push_back(x_list->item(i)->text().toDouble());
+    }
+    return result;
+}
+
+std::vector<double> MainWindow::readY(){
+    std::vector<double> result;
+    for (int i = 0; i < y_combobox->count(); i++){
+        result.push_back(y_combobox->itemText(i).toDouble());
+    }
+    return result;
 }
