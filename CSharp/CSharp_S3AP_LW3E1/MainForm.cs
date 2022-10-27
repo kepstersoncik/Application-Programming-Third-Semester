@@ -24,13 +24,13 @@ public partial class MainForm : Form
     public MainForm()
     {
         this.Size = new Size(300, 310);
-        this.Text = "Работа № 2";
+        this.Text = "Работа № 3";
 
         arrays = new XYArrays();
 
         menu_bar = new MenuStrip();
         file_menu = new ToolStripMenuItem("Файл");
-        create_new = new ToolStripMenuItem("Создать");
+        create_new = new ToolStripMenuItem("Новый");
         create_new.Click += create_new_Click;
         file_menu.DropDownItems.Add(create_new);
         load = new ToolStripMenuItem("Загрузить");

@@ -42,7 +42,7 @@ public class MainForm {
     MainForm(){
         main_frame = new JFrame();
         main_frame.setBounds(10, 20, 365, 340);
-        main_frame.setTitle("Лабораторная работа № 3");
+        main_frame.setTitle("Работа № 3");
         main_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         main_frame.setLayout(null);
 
@@ -57,7 +57,7 @@ public class MainForm {
         menu_bar.setBounds(0, 0, 400, 25);
 
         file_menu = new JMenu("Файл");
-        create_new = new JMenuItem("Создать");
+        create_new = new JMenuItem("Новый");
         create_new.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 makeX();
