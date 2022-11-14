@@ -1,0 +1,15 @@
+D:\Semester_3_2022\AP\CSharp\CSharp_S3AP_LW5E2\bin\Debug\net6.0-windows\CSharp_S3AP_LW5E2.exe
+D:\Semester_3_2022\AP\CSharp\CSharp_S3AP_LW5E2\bin\Debug\net6.0-windows\CSharp_S3AP_LW5E2.deps.json
+D:\Semester_3_2022\AP\CSharp\CSharp_S3AP_LW5E2\bin\Debug\net6.0-windows\CSharp_S3AP_LW5E2.runtimeconfig.json
+D:\Semester_3_2022\AP\CSharp\CSharp_S3AP_LW5E2\bin\Debug\net6.0-windows\CSharp_S3AP_LW5E2.dll
+D:\Semester_3_2022\AP\CSharp\CSharp_S3AP_LW5E2\bin\Debug\net6.0-windows\CSharp_S3AP_LW5E2.pdb
+D:\Semester_3_2022\AP\CSharp\CSharp_S3AP_LW5E2\obj\Debug\net6.0-windows\CSharp_S3AP_LW5E2.csproj.AssemblyReference.cache
+D:\Semester_3_2022\AP\CSharp\CSharp_S3AP_LW5E2\obj\Debug\net6.0-windows\CSharp_S3AP_LW5E2.GeneratedMSBuildEditorConfig.editorconfig
+D:\Semester_3_2022\AP\CSharp\CSharp_S3AP_LW5E2\obj\Debug\net6.0-windows\CSharp_S3AP_LW5E2.AssemblyInfoInputs.cache
+D:\Semester_3_2022\AP\CSharp\CSharp_S3AP_LW5E2\obj\Debug\net6.0-windows\CSharp_S3AP_LW5E2.AssemblyInfo.cs
+D:\Semester_3_2022\AP\CSharp\CSharp_S3AP_LW5E2\obj\Debug\net6.0-windows\CSharp_S3AP_LW5E2.csproj.CoreCompileInputs.cache
+D:\Semester_3_2022\AP\CSharp\CSharp_S3AP_LW5E2\obj\Debug\net6.0-windows\CSharp_S3AP_LW5E2.dll
+D:\Semester_3_2022\AP\CSharp\CSharp_S3AP_LW5E2\obj\Debug\net6.0-windows\refint\CSharp_S3AP_LW5E2.dll
+D:\Semester_3_2022\AP\CSharp\CSharp_S3AP_LW5E2\obj\Debug\net6.0-windows\CSharp_S3AP_LW5E2.pdb
+D:\Semester_3_2022\AP\CSharp\CSharp_S3AP_LW5E2\obj\Debug\net6.0-windows\CSharp_S3AP_LW5E2.genruntimeconfig.cache
+D:\Semester_3_2022\AP\CSharp\CSharp_S3AP_LW5E2\obj\Debug\net6.0-windows\ref\CSharp_S3AP_LW5E2.dll
